@@ -62,7 +62,7 @@
                                 %>
                                 <select  name="ciudad_id" class="form-control">
                                     <% while(con.getResultado().next()){ %>
-                                    <option value="<% out.println(""+con.getResultado().getString("ciudad_id")); %>"><% out.println(""+con.getResultado().getString("nombre")); %></option>
+                                    <option value=<% out.println(""+con.getResultado().getString("ciudad_id")); %>><% out.println(""+con.getResultado().getString("nombre")); %></option>
                                     <% } %>
                                 </select>
                          
