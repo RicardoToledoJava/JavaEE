@@ -74,10 +74,10 @@ public class Usuario {
        con.setInsertar("insert into Usuarios(nombre,apepat,apemat,ciudad_id,estado) values('"+this.getNombre()+"','"+this.getApepat()+"','"+this.getApemat()+"','"+this.getCiudad_id()+"','activo')");
     }
     public void eliminar(){
-    
+      con.setInsertar("update Usuarios set estado='pasivo' where usuario_id='"+this.getUsuario_id()+"'");
     }
     public void actualizar(){
-    
+      
     }
    
     
