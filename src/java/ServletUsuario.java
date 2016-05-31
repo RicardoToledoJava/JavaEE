@@ -37,11 +37,24 @@ public class ServletUsuario extends HttpServlet {
             //ESTA PARTE VA NUESTRO CODIGO
             Usuario usuario = new Usuario();
             String eliminar=request.getParameter("eliminar");
+            String update=request.getParameter("update");
             if (eliminar != null) {
                 int eliminar_id=Integer.parseInt(eliminar);
                 usuario.setUsuario_id(eliminar_id);
                 usuario.eliminar();
                 response.sendRedirect("usuarios/index.jsp");
+            }else if(update !=null){
+                int id=Integer.parseInt(request.getParameter("id"));
+                String nombre = request.getParameter("nombre");
+                String apepat = request.getParameter("apepat");
+                String apemat = request.getParameter("apemat");
+                int ciudad_id = Integer.parseInt(request.getParameter("ciudad_id"));
+                
+                usuario.setNombre(nombre);
+                usuario.setApepat(apepat);
+                usuario.setApemat(apemat);
+                usuario.setCiudad_id(ciudad_id);
+                usuario.actualizar();
             }
             
             else {

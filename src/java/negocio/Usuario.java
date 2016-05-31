@@ -77,7 +77,7 @@ public class Usuario {
       con.setInsertar("update Usuarios set estado='pasivo' where usuario_id='"+this.getUsuario_id()+"'");
     }
     public void actualizar(){
-      
+      con.setInsertar("update Usuarios set nombre='"+this.getNombre()+"',apepat='"+this.getApepat()+"',apemat='"+this.getApemat()+"',ciudad_id='"+this.getCiudad_id()+"' where usuario_id='"+this.usuario_id+"'");
     }
    
     
