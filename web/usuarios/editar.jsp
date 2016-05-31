@@ -49,7 +49,7 @@
                         <% while(con.getResultado().next()){  %>
                         
                         <form method="POST" action="../ServletUsuario?update=si">
-                            
+                            <!-- OJO CON EL CAMPO HIDDEN QUE ES ENVIADO POR EL FORMULARIO PARA ACTUALIZAR -->
                             <input type="hidden" value='<% out.println(""+con.getResultado().getString("usuario_id")); %>' name="id">
                             <div class="form-group">
                                 <label for="nombre">Nombre </label>
@@ -68,7 +68,7 @@
                                 <input type="text" class="form-control" name="ciudad_id" value='<% out.println(""+con.getResultado().getString("ciudad_id")); %>' id="nombre" placeholder="Ingresar Nombre">
                             </div>
                             
-                            <button type="submit" class="btn btn-default">Guardar</button>
+                            <button type="submit" class="btn btn-default">ACTUALIZAR</button>
                         </form>
                        <% } %> 
 
