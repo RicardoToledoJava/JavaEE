@@ -1,3 +1,4 @@
+<%@page import="accesodato.Coneccion"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,15 +34,41 @@
             </div>
         </nav>
         <div class="container">
-            <br><br><br>
+             <br><br><br>
             <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Editar Usuarios</h3>
+                        <h3 class="panel-title">Actualizar Usuario</h3>
                     </div>
+                    <% 
+                        int id=Integer.parseInt(request.getParameter("editar"));
+                        Coneccion con=new Coneccion();
+                        con.setConsulta("select * from Usuarios where usuario_id='"+id+"'");
+                    %>
                     <div class="panel-body">
+                        <% while(con.getResultado().next()){  %>
                         
-                        
+                        <form method="POST" action="../ServletUsuario">
+                            <div class="form-group">
+                                <label for="nombre">Nombre </label>
+                                <input type="text" class="form-control" name="nombre" value='<% out.println(""+con.getResultado().getString("nombre")); %>' id="nombre" placeholder="Ingresar Nombre">
+                            </div>
+                             <div class="form-group">
+                                <label for="nombre">1er Apellido</label>
+                                <input type="text" class="form-control" name="apepat" id="nombre" placeholder="Ingresar Nombre">
+                            </div>
+                             <div class="form-group">
+                                <label for="nombre">2do Apellido</label>
+                                <input type="text" class="form-control" name="apemat" id="nombre" placeholder="Ingresar Nombre">
+                            </div>
+                             <div class="form-group">
+                                <label for="nombre">Ciudad</label>
+                                <input type="text" class="form-control" name="ciudad_id" id="nombre" placeholder="Ingresar Nombre">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-default">Guardar</button>
+                        </form>
+                       <% } %> 
 
                     </div>
                 </div>

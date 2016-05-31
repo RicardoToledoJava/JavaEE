@@ -42,7 +42,9 @@ public class ServletUsuario extends HttpServlet {
                 usuario.setUsuario_id(eliminar_id);
                 usuario.eliminar();
                 response.sendRedirect("usuarios/index.jsp");
-            } else {
+            }
+            
+            else {
                 String nombre = request.getParameter("nombre");
                 String apepat = request.getParameter("apepat");
                 String apemat = request.getParameter("apemat");

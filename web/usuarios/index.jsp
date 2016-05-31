@@ -67,6 +67,7 @@
                                        out.println("<td>"+con.getResultado().getString("apemat")+"</td>");
                                        out.println("<td>"+con.getResultado().getString("ciudad")+"</td>");
                                        out.println("<td>"+"<a href='../ServletUsuario?eliminar="+con.getResultado().getString("usuario_id")+"' class='btn btn-danger'>Eliminar</a>"+"</td>");
+                                       out.println("<td>"+"<a href='editar.jsp?editar="+con.getResultado().getString("usuario_id")+"' class='btn btn-primary'>Editar</a>"+"</td>");
                                        
                                     out.println("</tr>");
                                    }
