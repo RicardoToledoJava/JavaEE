@@ -1,3 +1,4 @@
+<%@page import="accesodato.Coneccion"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -45,22 +46,32 @@
                                 <label for="nombre">Nombre </label>
                                 <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Ingresar Nombre">
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="nombre">1er Apellido</label>
                                 <input type="text" class="form-control" name="apepat" id="nombre" placeholder="Ingresar Nombre">
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="nombre">2do Apellido</label>
                                 <input type="text" class="form-control" name="apemat" id="nombre" placeholder="Ingresar Nombre">
                             </div>
-                             <div class="form-group">
+                            <div class="form-group">
                                 <label for="nombre">Ciudad</label>
-                                <input type="text" class="form-control" name="ciudad_id" id="nombre" placeholder="Ingresar Nombre">
+                                <%
+                                    Coneccion con=new Coneccion();
+                                    con.setConsulta("select * from ciudades");
+                                %>
+                                <select  name="ciudad_id" class="form-control">
+                                    <% while(con.getResultado().next()){ %>
+                                    <option value="<% out.println(""+con.getResultado().getString("ciudad_id")); %>"><% out.println(""+con.getResultado().getString("nombre")); %></option>
+                                    <% } %>
+                                </select>
+                         
+
                             </div>
-                            
+
                             <button type="submit" class="btn btn-default" name="guardar">Guardar</button>
                         </form>
-                        
+
 
                     </div>
                 </div>
