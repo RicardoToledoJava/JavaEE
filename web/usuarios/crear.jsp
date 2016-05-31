@@ -58,7 +58,7 @@
                                 <input type="text" class="form-control" name="ciudad_id" id="nombre" placeholder="Ingresar Nombre">
                             </div>
                             
-                            <button type="submit" class="btn btn-default">Guardar</button>
+                            <button type="submit" class="btn btn-default" name="guardar">Guardar</button>
                         </form>
                         
 

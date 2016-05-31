@@ -16,24 +16,23 @@ public class ServletUsuario extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             //ESTA PARTE VA NUESTRO CODIGO
             Usuario usuario = new Usuario();
-            String eliminar=request.getParameter("eliminar");
-            String update=request.getParameter("update");
+           
             
             // SI LA VARIABLE ENVIADA DESDE INDEX.JSP DE NOMBRE ELIMINAR NO VIENE VACIA "ELIMINA"
-            if (eliminar != null) {
-                int eliminar_id=Integer.parseInt(eliminar);
+            if (request.getParameter("eliminar")!= null) {
+                int eliminar_id=Integer.parseInt(request.getParameter("eliminar"));
                 usuario.setUsuario_id(eliminar_id);
                 usuario.eliminar();
                 response.sendRedirect("usuarios/index.jsp");
-            // SI LA VARIABLE ENVIADA DESDE EDITAR.JSP DE NOMBRE UPDATE NO VIENE VACIA "RECIBE LOS DATOS"
-            }else if(update !=null){
-                // OJO CON LA VARIABLE ID QUE ESTA EN EL CAMPO HIDDEN DEL FORMULARIO EDITAR
+            // SI LA VARIABLE ENVIADA DESDE EDITAR.JSP DE NOMBRE EDITAR NO VIENE VACIA "RECIBE LOS DATOS"
+            }else if(request.getParameter("editar")!=null){
+                 // OJO CON LA VARIABLE ID QUE ESTA EN EL CAMPO HIDDEN DEL FORMULARIO EDITAR
                 int id=Integer.parseInt(request.getParameter("id"));
                 String nombre = request.getParameter("nombre");
                 String apepat = request.getParameter("apepat");
                 String apemat = request.getParameter("apemat");
                 int ciudad_id = Integer.parseInt(request.getParameter("ciudad_id"));
-                
+                usuario.setUsuario_id(id);
                 usuario.setNombre(nombre);
                 usuario.setApepat(apepat);
                 usuario.setApemat(apemat);
@@ -42,7 +41,6 @@ public class ServletUsuario extends HttpServlet {
                 usuario.actualizar();
                 //SE REDIRECCIONA AL INDEX
                 response.sendRedirect("usuarios/index.jsp");
-                
             }
             // EN CASO DE QUE NO SE ELIMINE NI SE ACTUALICE SE GUARDA
             else {
