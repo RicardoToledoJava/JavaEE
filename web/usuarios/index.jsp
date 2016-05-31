@@ -58,7 +58,7 @@
                             <tbody>
                                 <%
                                    Coneccion con=new Coneccion();
-                                   con.setConsulta("select Usuarios.usuario_id,Usuarios.nombre,usuarios.apepat,usuarios.apemat,ciudades.nombre as ciudad from Usuarios,Ciudades where Usuarios.ciudad_id=Ciudades.ciudad_id");
+                                   con.setConsulta("select Usuarios.usuario_id,Usuarios.nombre,usuarios.apepat,usuarios.apemat,ciudades.nombre as ciudad from Usuarios,Ciudades where Usuarios.ciudad_id=Ciudades.ciudad_id and Usuarios.estado='activo'");
                                    while(con.getResultado().next()){
                                     out.println("<tr>");
                                        out.println("<td>"+con.getResultado().getString("usuario_id")+"</td>");
